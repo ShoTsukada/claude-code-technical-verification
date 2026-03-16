@@ -30,6 +30,10 @@ Tailwind CSS 4.x は設定ファイル（`tailwind.config.*`）が不要。`post
 ### Next.js App Router
 `app/` 配下のファイルはデフォルトで Server Component。クライアント側の状態・イベントが必要なコンポーネントは先頭に `"use client"` を付ける。
 
+## テスト
+
+現時点でテスト設定は未導入。テストを追加する場合は Vitest + Testing Library を推奨（他のサブプロジェクトとの一貫性のため）。
+
 ## コーディング規約
 
 - ファイル内のコメントはすべて日本語で記述する
