@@ -30,6 +30,28 @@ Tailwind CSS 4.x は設定ファイル（`tailwind.config.*`）が不要。`post
 ### Next.js App Router
 `app/` 配下のファイルはデフォルトで Server Component。クライアント側の状態・イベントが必要なコンポーネントは先頭に `"use client"` を付ける。
 
+## Supabase 連携
+
+- クライアント: `lib/supabase.ts`（`@supabase/supabase-js` で初期化済み）
+- 接続先: `tyngthitmwazseosvums.supabase.co`
+- 使用例: `app/tests/page.tsx` — `tests` テーブルに対して SELECT / UPDATE を行う Client Component
+
+### tests テーブルのスキーマ
+
+| カラム | 型 | 備考 |
+|---|---|---|
+| id | uuid | PK |
+| name | text | NOT NULL |
+| description | text | nullable |
+| created_at | timestamptz | |
+
+## ルート一覧
+
+| パス | ファイル | 説明 |
+|---|---|---|
+| `/` | `app/page.tsx` | ホームページ（create-next-app デフォルト） |
+| `/tests` | `app/tests/page.tsx` | `tests` テーブルの一覧・インライン編集 UI |
+
 ## テスト
 
 現時点でテスト設定は未導入。テストを追加する場合は Vitest + Testing Library を推奨（他のサブプロジェクトとの一貫性のため）。
