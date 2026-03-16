@@ -1,0 +1,30 @@
+{
+  "extraKnownMarketplaces": {
+    "everything-claude-code": {
+      "source": {
+        "source": "github",
+        "repo": "affaan-m/everything-claude-code"
+      }
+    }
+  }, 
+  "enabledPlugins": {
+    "everything-claude-code@everything-claude-code": true
+  },
+  "disabledMcpServers": [
+    "firecrawl",
+    "memory",
+    "sequential-thinking",
+    "railway",
+    "cloudflare-docs",
+    "cloudflare-workers-builds",
+    "cloudflare-workers-bindings",
+    "cloudflare-observability",
+    "clickhouse",
+    "exa-web-search",
+    "magic",
+    "insaits",
+    "browser-use",
+    "token-optimizer",
+    "confluence"
+  ]
+}
