@@ -1,36 +1,45 @@
-これは [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app) で作成した [Next.js](https://nextjs.org) プロジェクトです。
+# 研究管理システム
 
-## はじめに
+研究機関・研究テーマ・投資家を一元管理し、エンティティ間の関連付けとフィードバック収集を提供する Web アプリです。
 
-まず、開発サーバーを起動します：
+**技術スタック**: Next.js 16 · React 19 · TypeScript · Tailwind CSS 4 · Supabase
+
+## 機能
+
+- **研究機関 / 研究テーマ / 投資家** の CRUD（一覧・登録・編集・削除）
+- エンティティ間の **関連付け管理**（機関 ↔ テーマ ↔ 投資家）
+- 全画面共通の **フィードバック投稿**（スコア・カテゴリ付き）
+- 管理者向け **フィードバックダッシュボード**（集計グラフ・ステータス管理）
+
+## セットアップ
 
 ```bash
-npm run dev
-# または
-yarn dev
-# または
-pnpm dev
-# または
-bun dev
+npm install
 ```
 
-ブラウザで [http://localhost:3000](http://localhost:3000) を開くと結果が確認できます。
+`.env.local` に Supabase の接続情報を設定：
 
-`app/page.tsx` を編集するとページを変更できます。ファイルを編集すると自動的にページが更新されます。
+```env
+NEXT_PUBLIC_SUPABASE_URL=https://your-project.supabase.co
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key
+```
 
-このプロジェクトでは [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) を使用して、Vercel の新しいフォントファミリーである [Geist](https://vercel.com/font) を自動的に最適化・読み込みしています。
+## コマンド
 
-## 詳しく学ぶ
+```bash
+npm run dev      # 開発サーバー起動 (http://localhost:3000)
+npm run build    # 本番ビルド
+npm run start    # 本番サーバー起動
+npm run lint     # ESLint 実行
+```
 
-Next.js についてさらに詳しく知りたい場合は、以下のリソースをご覧ください：
+## 画面一覧
 
-- [Next.js ドキュメント](https://nextjs.org/docs) - Next.js の機能と API について学ぶ
-- [Next.js チュートリアル](https://nextjs.org/learn) - インタラクティブな Next.js チュートリアル
-
-[Next.js の GitHub リポジトリ](https://github.com/vercel/next.js) もご覧ください。フィードバックや貢献を歓迎しています！
-
-## Vercel へのデプロイ
-
-Next.js アプリをデプロイする最も簡単な方法は、Next.js の開発元が提供する [Vercel プラットフォーム](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) を使用することです。
-
-詳細は [Next.js デプロイドキュメント](https://nextjs.org/docs/app/building-your-application/deploying) をご覧ください。
+| パス | 説明 |
+|---|---|
+| `/institutions` | 研究機関一覧・検索 |
+| `/institutions/[id]` | 詳細・関連テーマ/投資家の管理 |
+| `/themes` | 研究テーマ一覧・分野フィルタ |
+| `/investors` | 投資家一覧・種別フィルタ |
+| `/feedback` | 自分の投稿フィードバック一覧 |
+| `/admin/feedback` | 集計ダッシュボード・ステータス管理 |
